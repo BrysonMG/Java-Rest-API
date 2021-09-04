@@ -30,8 +30,21 @@ public class ApiControllers {
         return "Saved!";
     }
 
-    @PutMapping("update/{id}")
-    public String updateUser(int id, @RequestBody User user) {
+    @PutMapping(value="update/{id}")
+    public String updateUser(Long id, @RequestBody User user) {
         User updatedUser = userRepo.findById(id).get();
+        updatedUser.setFirstName(user.getFirstName());
+        updatedUser.setLastName(user.getLastName());
+        updatedUser.setAge(user.getAge());
+        updatedUser.setOccupation(user.getOccupation());
+        userRepo.save(updatedUser);
+        return "Updated!";
+    }
+
+    @DeleteMapping(value = "delete/{id}")
+    public String deleteUser(@PathVariable long id) {
+        User deleteUser = userRepo.findById(id).get();
+        userRepo.delete(deleteUser);
+        return "Deleted!";
     }
 }

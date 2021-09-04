@@ -10,7 +10,7 @@ public class User {
     //@GeneratedValue means that it will assign a value for new entries to the table
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     //Each of these '@Column's means that these properties will be a column in this table.
     @Column
     private String firstName;
@@ -22,11 +22,11 @@ public class User {
     private String occupation;
 
     //Getters and Setters have to be declared separately. You can't do { get; set; } like you could in C#.
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
