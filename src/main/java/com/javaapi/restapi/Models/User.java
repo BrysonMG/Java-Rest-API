@@ -1,11 +1,24 @@
 package com.javaapi.restapi.Models;
 
+import javax.persistence.*;
+
+//@Entity will tell MySQL that this will be a table in the DB
+@Entity
 public class User {
 
+    //@Id tells it that this property will be a primary key and
+    //@GeneratedValue means that it will assign a value for new entries to the table
+    @Id
+    @GeneratedValue
     private int id;
+    //Each of these '@Column's means that these properties will be a column in this table.
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @Column
     private int age;
+    @Column
     private String occupation;
 
     //Getters and Setters have to be declared separately. You can't do { get; set; } like you could in C#.
